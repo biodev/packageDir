@@ -1,0 +1,39 @@
+Package: packageDir
+Title: Tool for in silico functional analysis design and exploration of
+    relation between genomic function and aberration.
+Description: Allows exploration of relationship between aberrational and
+    functionally sensitive gene targets.
+Depends:
+    R (>= 2.50)
+Imports:
+    AnnotationDbi,
+    reactome.db,
+    graphite,
+    HGNChelper,
+    tcltk,
+    VennDiagram,
+    calibrate,
+    RCurl,
+    biomaRt,
+    xtable,
+    tools,
+    graph,
+    plyr,
+    methods,
+    ggplot2,
+    gridExtra,
+    shiny,
+    stringr,
+Suggests:
+    rBiopaxParser,
+    RCytoscape,
+    hwriterPlus,
+    hwriter,
+    RUnit,
+    BiocGenerics
+Version: 0.1
+Author: Sam Higgins <samuelhiggins@gmail.com>
+Maintainer: Sam Higgins <samuelhiggins@gmail.com>
+License: Artistic-2.0
+Packaged: 2014-05-08 07:43:19 UTC; samhiggins2001_worldperks
+RoxygenNote: 6.1.1
