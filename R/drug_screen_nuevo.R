@@ -34,15 +34,23 @@ RunDrugScreen<-function(settings, study){
 	path_detail = getPaths(study)
 	drug_screen_summary = list() #this is the main summary object that is provided in the main name space for the main function
 	s = settings
+	
+	if(settings$functional_drug_screen_summary$`Enter \\"g\\" to examine coverage using a set of gene names. Enter \\"d\\" to examine coverage using drug names, along with a drug target matrix: ` == "g"){
+		drug_screen_summary = getPanelCoverage(path_detail=path_detail, s=s, study=study, alreadyRun = "g")
+		return(drug_screen_summary)
+	}
+	
+	
 	interactiveTMP = s$interactive #this allows that, if a user enters something the program does not understand, 
 																	#the program will cycle back through and re-prompt the user and the settings will not be screwed up.
 	while(T){
 		s = setting(s=s, prompt=paste("\n To analyze drug screen panel coverage (for a panel that has or has not been run), enter p\n",
-																	"To process drug screen result set enter d\n",
+															 		"To process drug screen result set enter d\n",
 																	"To save an HTML summary of the results enter h\n",
 																	"To exit drug screen interface, enter q\n"))
 		s$interactive=interactiveTMP
 		mainsel = s$.text
+		
 		if(mainsel=="p"){
 			drug_screen_summary = getPanelCoverage(path_detail=path_detail, s=s, study=study, alreadyRun = "g")
 			return(drug_screen_summary)}
