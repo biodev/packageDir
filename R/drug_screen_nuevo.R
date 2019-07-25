@@ -44,9 +44,13 @@ RunDrugScreen<-function(settings, study){
 		s$interactive=interactiveTMP
 		mainsel = s$.text
 		if(mainsel=="p"){
-			drug_screen_summary = getPanelCoverage(path_detail=path_detail, s=s, study=study)
-			return(drug_screen_summary)
-		}else if(mainsel=="d"){
+			drug_screen_summary = getPanelCoverage(path_detail=path_detail, s=s, study=study, alreadyRun = "g")
+			return(drug_screen_summary)}
+	#	if(mainsel=="p"){
+	#		drug_screen_summary = getPanelCoverage(path_detail=path_detail, s=s, study=study)
+	#		return(drug_screen_summary)
+	#	}
+		else if(mainsel=="d"){
 			#setwd("~/tprog/drug_screen_arm")
 			drug_screen_summary = runPanelAnalysis(path_detail=path_detail, s=s, study=study)
 			return(drug_screen_summary)
@@ -328,8 +332,17 @@ getPanelCoverage<-function(path_detail, study, alreadyRun=NULL, s=list()){
 		#just open the drugscreen patient scores matrix file, extract the target names and clean them. 
 		default = "./input/Drug_screen_data_6_paired_experiments.txt"
 		
-		s = setting(s=s, prompt="Please select a file")
-		smSource = s$.text
+
+		
+		
+		test_val <- study@studyMetaData@settings$functional_drug_screen_summary$`Please select a file`
+		
+		if(is.null(test_val)){
+			s = setting(s=s, prompt="Please select a file")
+			smSource = s$.text 
+		}
+		else{
+		smSource <- test_val}
 
 		tracker[["Drug screen coverage data file used"]] = smSource
 		tracker[["Time stamp for drug screen data file"]] = as.character(as.character(file.info(smSource)$mtime))

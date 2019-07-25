@@ -7,7 +7,6 @@ Depends:
     R (>= 2.50)
 Imports:
     AnnotationDbi,
-    reactome.db,
     graphite,
     HGNChelper,
     tcltk,
@@ -25,6 +24,7 @@ Imports:
     shiny,
     stringr,
 Suggests:
+    reactome.db,
     rBiopaxParser,
     RCytoscape,
     hwriterPlus,
