@@ -868,7 +868,6 @@ depricated_getBiomartDbIds<-function(){
 #'@param pnames A vector of pathway names
 #'@return A two column data frame; columns pid (path name) and dbid (database id). Row names are set as path names. 
 #'@import reactome.db 
-#'@import stringr
 #'@export
 getReactomeIds<-function(pnames){
 	
