@@ -867,9 +867,11 @@ depricated_getBiomartDbIds<-function(){
 #'@description Get reactome database ids, give reactome path ids. Used in forming URL strings to download biopax files.
 #'@param pnames A vector of pathway names
 #'@return A two column data frame; columns pid (path name) and dbid (database id). Row names are set as path names. 
-#'@import reactome.db 
 #'@export
 getReactomeIds<-function(pnames){
+
+	
+	###@import reactome.db 
 	
 	pathNames = pnames
 	hpids = getHumanPathIds()

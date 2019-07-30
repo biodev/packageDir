@@ -21,8 +21,7 @@ Imports:
     methods,
     ggplot2,
     gridExtra,
-    shiny,
-    stringr,
+    shiny
 Suggests:
     reactome.db,
     rBiopaxParser,

@@ -887,9 +887,11 @@ fixPathNames<-function(x){
 #'@title Pull out human path ids from the reactome.db annotation package
 #'@description Get human path ids from the reactome.db annotation package
 #'@return \code{list}, names are path names, values are db ids.
-#'@import reactome.db 
 #'@import AnnotationDbi
 getHumanPathIds<-function(){
+	
+	#@import reactome.db 
+	
 	# 	library("reactome.db")
 	# 	library("AnnotationDbi")
 	print(class(reactomePATHNAME2ID))
