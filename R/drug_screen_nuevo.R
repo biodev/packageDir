@@ -35,7 +35,7 @@ RunDrugScreen<-function(settings, study){
 	drug_screen_summary = list() #this is the main summary object that is provided in the main name space for the main function
 	s = settings
 	
-	if(settings$functional_drug_screen_summary$`Enter \\"g\\" to examine coverage using a set of gene names. Enter \\"d\\" to examine coverage using drug names, along with a drug target matrix: ` == "g"){
+	if(settings$gene_stat == "g"){
 		drug_screen_summary = getPanelCoverage(path_detail=path_detail, s=s, study=study, alreadyRun = "g")
 		return(drug_screen_summary)
 	}

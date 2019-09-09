@@ -324,10 +324,19 @@ filterMutationType<-function(tcga_som, tracker, s){
 	#give user the option to filter it: 
 	####################### readline() ####################### 
 	cat("\n\n")
-	prompt = "\nPlease enter the row numbers of the variant types you would like to analyze (sepparated by a space).\n"
-	s = settingList(s=s, prompt=prompt, set=tcga_som_sum)
 	
-	selection = s$.text
+	if(is.null(s$`mutation_type`)){
+		
+		prompt = "\nPlease enter the row numbers of the variant types you would like to analyze (sepparated by a space).\n"
+		s = settingList(s=s, prompt=prompt, set=tcga_som_sum)
+		
+		selection = s$.text
+		
+	}
+	
+	else{
+		selection <- s$mutation_type
+	}
 	
 	cat("\nLimiting analysis to these somatic mutation types:\n")
 	print(selection)
